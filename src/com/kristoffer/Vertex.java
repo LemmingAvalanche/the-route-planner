@@ -16,4 +16,12 @@ public class Vertex {
     public Vertex(String name) {
         this.name = name;
     }
+
+    public void addEdge(Edge neighbor) {
+        neighbors.add(neighbor);
+    }
+
+    public void setPrevious(Vertex previous) {
+        this.previous = previous;
+    }
 }
