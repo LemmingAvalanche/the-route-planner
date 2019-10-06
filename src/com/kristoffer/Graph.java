@@ -95,7 +95,7 @@ public class Graph {
 
     public void dijkstra() {
         PriorityQueue<Vertex> pqueue =
-                new PriorityQueue<>(50, new Comparator<Vertex>() {
+                new PriorityQueue<>(MAX_VERTICES, new Comparator<Vertex>() {
                     @Override
                     public int compare(Vertex v1, Vertex v2) {
                         return v1.getDistance() - v2.getDistance();

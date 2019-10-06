@@ -19,7 +19,7 @@ public class Main {
     }
 
     public static ArrayList<Field> readFile(String filename) {
-        int maxLines = 49;
+        int maxLines = Graph.MAX_VERTICES-1;
         ArrayList<Field> fields = new ArrayList<>(maxLines);
         File file = new File(filename);
         try (Scanner scanner = new Scanner(file)) {
