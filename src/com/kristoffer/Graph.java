@@ -11,14 +11,25 @@ public class Graph {
     // See: The documentation for `java.util.HashMap<K,V>`.
     private HashMap<String, Vertex> graph = new HashMap(68);
 
-    public Graph(ArrayList<Field> fields) {
+    public Graph(ArrayList<Field> fields, String start) {
         for (Field f : fields) {
             int weight = f.getTime();
             Vertex v1 = addVertex(f.getFrom());
             Vertex v2 = addVertex(f.getTo());
 
+            setToZeroIfStart(v1, start);
+            setToZeroIfStart(v2, start);
+
             v1.addEdge(new Edge(v2, weight));
             v2.addEdge(new Edge(v1, weight));
+        }
+    }
+
+    // The distance (in minutes) from the starting vertex to itself is
+    // 0.
+    private static void setToZeroIfStart(Vertex vertex, String start) {
+        if (vertex.getName().equals(start)) {
+            vertex.setDistance(0);
         }
     }
 
