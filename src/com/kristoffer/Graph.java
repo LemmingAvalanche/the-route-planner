@@ -1,7 +1,9 @@
 package com.kristoffer;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.PriorityQueue;
 
 public class Graph {
 
@@ -51,5 +53,16 @@ public class Graph {
                     "Tried to return Vertex that is not in the Graph."
             );
         }
+    }
+
+    public void dijkstra() {
+        PriorityQueue<Vertex> pqueue =
+                new PriorityQueue<>(50, new Comparator<Vertex>() {
+                    @Override
+                    public int compare(Vertex v1, Vertex v2) {
+                        return v1.getDistance() - v2.getDistance();
+                    }
+                });
+        pqueue.addAll(graph.values());
     }
 }
