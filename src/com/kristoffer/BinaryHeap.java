@@ -39,6 +39,21 @@ public class BinaryHeap {
         bubbleUp(v, index);
     }
 
+    private Vertex deleteMin() {
+        Vertex min = heap[0];
+        heap[0] = heap[nextAvailable-1];
+        nextAvailable--;
+        siftDown();
+    }
+
+    private void siftDown() {
+        int c1 = getChild1(0);
+        int c2 = getChild2(0);
+        if (c1 < nextAvailable && c2 < nextAvailable) {
+        }
+
+    }
+
     private static int getParentIndex(int index) {
         return index/2;
     }
