@@ -64,5 +64,29 @@ public class Graph {
                     }
                 });
         pqueue.addAll(graph.values());
+
+        Vertex v = null;
+        while (!pqueue.isEmpty()) {
+            v = pqueue.remove();
+            int distance = v.getDistance();
+            for (Edge e : v.getNeighbors()) {
+                Vertex n = e.getTo();
+                int w = e.getWeight();
+                int newDistance = distance + w;
+                if (n.getDistance() > newDistance) {
+                    // `PriorityQueue` has no `decreasekey(_)` method
+                    // so we need to remove the object and re-insert
+                    // it after we have updated `distance`.
+                    //
+                    // TODO: This degrades the complexity of the
+                    //   algorithm since `remove(_)` is O(n).
+                    pqueue.remove(n);
+                    n.setDistance(newDistance);
+                    pqueue.offer(n);
+
+                    n.setPrevious(v);
+                }
+            }
+        }
     }
 }
