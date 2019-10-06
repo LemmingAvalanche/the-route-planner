@@ -8,6 +8,13 @@ import java.util.Stack;
 
 public class Graph {
 
+    // The max number of vertices.
+    //
+    // The input file is at most 49 lines (less than 50), the graph is
+    // connected, and the max number of vertices in a connected graph
+    // with 49 edges is 49+1.
+    public static final int MAX_VERTICES = 50;
+
     // Set the initial size to be greater than the max needed size
     // divided by the load factor (50 ÷ 0.75).
     //
