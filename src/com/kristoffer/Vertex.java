@@ -24,4 +24,24 @@ public class Vertex {
     public void setPrevious(Vertex previous) {
         this.previous = previous;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        String sep1 = ";";
+        String sep2 = ", ";
+        String s = "Vertex with: name: " + name + sep1;
+        s += " neigbhors: ";
+        for (Edge n : neighbors) {
+            s += n + sep2;
+        }
+        s += sep1;
+        s += " previous: "
+              + previous == null ? "[none]" + sep1 : previous + sep1;
+        s += " distance: " + distance + sep1;
+        return s;
+    }
 }
