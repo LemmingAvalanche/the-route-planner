@@ -25,6 +25,10 @@ public class Vertex {
         this.previous = previous;
     }
 
+    public ArrayList<Edge> getNeighbors() {
+        return neighbors;
+    }
+
     public void setDistance(int distance) {
         this.distance = distance;
     }

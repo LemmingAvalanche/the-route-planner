@@ -12,6 +12,14 @@ public class Edge {
         this.weight = weight;
     }
 
+    public Vertex getTo() {
+        return to;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
     @Override
     public String toString() {
         return "edge with vertex: " + to.getName()
