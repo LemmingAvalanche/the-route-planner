@@ -1,5 +1,6 @@
 package com.kristoffer;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Graph {
@@ -10,7 +11,17 @@ public class Graph {
     // See: The documentation for `java.util.HashMap<K,V>`.
     private HashMap<String, Vertex> graph = new HashMap(68);
 
-    public void addVertex(String name) {
+    public Graph(ArrayList<Field> fields) {
+        for (Field f : fields) {
+            int weight = f.getTime();
+            Vertex v1 = addVertex(f.getFrom());
+            Vertex v2 = addVertex(f.getTo());
+
+            v1.addEdge(new Edge(v2, weight));
+            v2.addEdge(new Edge(v1, weight));
+        }
+    }
+
     public Vertex addVertex(String name) {
         if (!graph.containsKey(name)) {
             graph.put(name, new Vertex(name));
