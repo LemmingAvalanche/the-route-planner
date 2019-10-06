@@ -69,6 +69,23 @@ public class Graph {
         return path;
     }
 
+    public String shortestPathToString(String start, String stop) {
+        Stack<Vertex> path = getShortestPath(start, stop);
+        String string = "";
+        while (!path.isEmpty()) {
+            Vertex v = path.pop();
+            String name = v.getName();
+            string += name;
+            // Add an arrow if this is not the final destination.
+            if (!name.equals(stop)) {
+                string += " → ";
+            }
+        }
+        Vertex destination = graph.get(stop);
+        string += ": " + destination.getDistance() + " minutes.";
+        return string;
+    }
+
     public void dijkstra() {
         PriorityQueue<Vertex> pqueue =
                 new PriorityQueue<>(50, new Comparator<Vertex>() {
