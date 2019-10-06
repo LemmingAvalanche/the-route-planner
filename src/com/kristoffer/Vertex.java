@@ -25,6 +25,14 @@ public class Vertex {
         this.previous = previous;
     }
 
+    public void setDistance(int distance) {
+        this.distance = distance;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
     public String getName() {
         return name;
     }
