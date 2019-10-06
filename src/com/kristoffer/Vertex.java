@@ -6,7 +6,7 @@ public class Vertex {
 
     // Bus stop name.
     private String name;
-    private ArrayList<Edge> neighbors = null;
+    private ArrayList<Edge> neighbors = new ArrayList<>();
     // For backtracking after Dijkstra’s Algorithm has found all
     // shortest paths.
     private Vertex previous = null;
