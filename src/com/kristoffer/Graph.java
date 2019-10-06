@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.PriorityQueue;
+import java.util.Stack;
 
 public class Graph {
 
@@ -53,6 +54,19 @@ public class Graph {
                     "Tried to return Vertex that is not in the Graph."
             );
         }
+    }
+
+    public Stack<Vertex> getShortestPath(String start, String stop) {
+        dijkstra();
+        Stack<Vertex> path = new Stack<>();
+
+        Vertex stopVertex = graph.get(stop);
+        Vertex p = stopVertex;
+        while (p != null) {
+            path.push(p);
+            p = p.getPrevious();
+        }
+        return path;
     }
 
     public void dijkstra() {
