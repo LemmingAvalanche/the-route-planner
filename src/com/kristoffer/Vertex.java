@@ -52,7 +52,8 @@ public class Vertex {
         }
         s += sep1;
         s += " previous: "
-              + (previous == null ? "[none]" + sep1 : previous + sep1);
+              + (previous == null ? "[none]" + sep1 :
+                previous.getName() + sep1);
         s += " distance: " + distance + sep1;
         return s;
     }
