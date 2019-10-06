@@ -25,6 +25,10 @@ public class Vertex {
         this.previous = previous;
     }
 
+    public Vertex getPrevious() {
+        return previous;
+    }
+
     public ArrayList<Edge> getNeighbors() {
         return neighbors;
     }
