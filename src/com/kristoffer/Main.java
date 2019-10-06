@@ -8,6 +8,8 @@ public class Main {
     public static void main(String[] args) {
 
         // Test case
+        String start = "Oppedal";
+        String stop = "Sløvåg";
         ArrayList<Field> fields = new ArrayList<>();
         fields.add(new Field("Mjømna", "Furenes", 5));
         fields.add(new Field("Furenes", "Eivindvik", 7));
