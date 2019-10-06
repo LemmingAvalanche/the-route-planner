@@ -46,15 +46,15 @@ public class Vertex {
         String sep1 = ";";
         String sep2 = ", ";
         String s = "Vertex with: name: " + name + sep1;
+        s += " previous: "
+                + (previous == null ? "[none]" + sep1 :
+                previous.getName() + sep1);
+        s += " distance: " + distance + sep1;
         s += " neigbhors: ";
         for (Edge n : neighbors) {
             s += n + sep2;
         }
-        s += sep1;
-        s += " previous: "
-              + (previous == null ? "[none]" + sep1 :
-                previous.getName() + sep1);
-        s += " distance: " + distance + sep1;
+
         return s;
     }
 }
