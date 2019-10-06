@@ -13,7 +13,8 @@ public class Graph {
     public void addVertex(String name) {
     public Vertex addVertex(String name) {
         if (!graph.containsKey(name)) {
-            return graph.put(name, new Vertex(name));
+            graph.put(name, new Vertex(name));
+            return graph.get(name);
         } else {
             return graph.get(name);
         }
