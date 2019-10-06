@@ -11,8 +11,11 @@ public class Graph {
     private HashMap<String, Vertex> graph = new HashMap(68);
 
     public void addVertex(String name) {
+    public Vertex addVertex(String name) {
         if (!graph.containsKey(name)) {
-            graph.put(name, new Vertex(name));
+            return graph.put(name, new Vertex(name));
+        } else {
+            return graph.get(name);
         }
     }
 
