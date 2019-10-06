@@ -1,26 +1,39 @@
 package com.kristoffer;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        // Test case
-        String start = "Oppedal";
-        String stop = "Sløvåg";
-        ArrayList<Field> fields = new ArrayList<>();
-        fields.add(new Field("Mjømna", "Furenes", 5));
-        fields.add(new Field("Furenes", "Eivindvik", 7));
-        fields.add(new Field("Eivindvik", "Oppedal", 12));
-        fields.add(new Field("Eivindvik", "Rutledal", 15));
-        fields.add(new Field("Rutledal", "Oppedal", 10));
-        fields.add(new Field("Rutledal", "Daløy", 17));
-        fields.add(new Field("Rutledal", "Sløvåg", 10));
-        fields.add(new Field("Sløvåg", "Daløy", 9));
-        fields.add(new Field("Daløy", "Nåra", 11));
-        fields.add(new Field("Rutledal", "Ynnesdal", 20));
-        fields.add(new Field("Ynnesdal", "Leirvik", 16));
-        fields.add(new Field("Leirvik", "Nåra", 30));
+        String filename = args[0];
+        String start = args[1];
+        String stop = args[2];
+        ArrayList<Field> fields = readFile(filename);
+
+        Graph g = new Graph(fields, start);
+        System.out.println(g.shortestPathToString(start, stop));
+    }
+
+    public static ArrayList<Field> readFile(String filename) {
+        int maxLines = 49;
+        ArrayList<Field> fields = new ArrayList<>(maxLines);
+        File file = new File(filename);
+        try (Scanner scanner = new Scanner(file)) {
+            String[] line = new String[maxLines];
+            while (scanner.hasNext()) {
+                line = scanner.nextLine().split(",");
+                String from = line[0];
+                String to = line[1];
+                int time = Integer.parseInt(line[2]);
+                fields.add(new Field(from, to, time));
+            }
+        } catch (FileNotFoundException fnfe) {
+            System.err.println(fnfe.getMessage());
+        }
+        return fields;
     }
 }
