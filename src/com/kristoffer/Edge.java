@@ -20,10 +20,4 @@ public class Edge {
         return weight;
     }
 
-    @Override
-    public String toString() {
-        return "edge with vertex: " + to.getName()
-                + "; weight: " + weight
-                + ";";
-    }
 }
