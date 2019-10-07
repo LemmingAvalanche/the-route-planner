@@ -85,7 +85,7 @@ public class Graph {
             string += name;
             // Add an arrow if this is not the final destination.
             if (!name.equals(stop)) {
-                string += " → ";
+                string += " -> ";
             }
         }
         Vertex destination = graph.get(stop);
